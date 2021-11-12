@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E494325273D94D000A58E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494324273D94D000A58E40 /* AppDelegate.swift */; };
+		7E494327273D94D000A58E40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494326273D94D000A58E40 /* SceneDelegate.swift */; };
+		7E49432C273D94D000A58E40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E49432A273D94D000A58E40 /* Main.storyboard */; };
+		7E49432E273D94D200A58E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E49432D273D94D200A58E40 /* Assets.xcassets */; };
+		7E494331273D94D200A58E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E49432F273D94D200A58E40 /* LaunchScreen.storyboard */; };
+		7E49433C273D94D200A58E40 /* Qardio_flickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49433B273D94D200A58E40 /* Qardio_flickrTests.swift */; };
+		7E494346273D94D200A58E40 /* Qardio_flickrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494345273D94D200A58E40 /* Qardio_flickrUITests.swift */; };
+		7E494348273D94D200A58E40 /* Qardio_flickrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494347273D94D200A58E40 /* Qardio_flickrUITestsLaunchTests.swift */; };
+		7E494357273D9AE500A58E40 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494356273D9AE500A58E40 /* Service.swift */; };
+		7E49435A273DA86E00A58E40 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494359273DA86E00A58E40 /* Result.swift */; };
+		7E49435C273DADED00A58E40 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49435B273DADED00A58E40 /* APIError.swift */; };
+		7E494362273DE7B900A58E40 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494361273DE7B900A58E40 /* RequestBuilder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E494338273D94D200A58E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E494319273D94D000A58E40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E494320273D94D000A58E40;
+			remoteInfo = "Qardio-flickr";
+		};
+		7E494342273D94D200A58E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E494319273D94D000A58E40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E494320273D94D000A58E40;
+			remoteInfo = "Qardio-flickr";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E494321273D94D000A58E40 /* Qardio-flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qardio-flickr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E494324273D94D000A58E40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7E494326273D94D000A58E40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7E49432B273D94D000A58E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E49432D273D94D200A58E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E494330273D94D200A58E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7E494332273D94D200A58E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E494337273D94D200A58E40 /* Qardio-flickrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Qardio-flickrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E49433B273D94D200A58E40 /* Qardio_flickrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qardio_flickrTests.swift; sourceTree = "<group>"; };
+		7E494341273D94D200A58E40 /* Qardio-flickrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Qardio-flickrUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E494345273D94D200A58E40 /* Qardio_flickrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qardio_flickrUITests.swift; sourceTree = "<group>"; };
+		7E494347273D94D200A58E40 /* Qardio_flickrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qardio_flickrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7E494356273D9AE500A58E40 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7E494359273DA86E00A58E40 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		7E49435B273DADED00A58E40 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		7E494361273DE7B900A58E40 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E49431E273D94D000A58E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E494334273D94D200A58E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E49433E273D94D200A58E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E494318273D94D000A58E40 = {
+			isa = PBXGroup;
+			children = (
+				7E494323273D94D000A58E40 /* Qardio-flickr */,
+				7E49433A273D94D200A58E40 /* Qardio-flickrTests */,
+				7E494344273D94D200A58E40 /* Qardio-flickrUITests */,
+				7E494322273D94D000A58E40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7E494322273D94D000A58E40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E494321273D94D000A58E40 /* Qardio-flickr.app */,
+				7E494337273D94D200A58E40 /* Qardio-flickrTests.xctest */,
+				7E494341273D94D200A58E40 /* Qardio-flickrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E494323273D94D000A58E40 /* Qardio-flickr */ = {
+			isa = PBXGroup;
+			children = (
+				7E494354273D9A8400A58E40 /* API */,
+				7E494324273D94D000A58E40 /* AppDelegate.swift */,
+				7E494326273D94D000A58E40 /* SceneDelegate.swift */,
+				7E49432A273D94D000A58E40 /* Main.storyboard */,
+				7E49432D273D94D200A58E40 /* Assets.xcassets */,
+				7E49432F273D94D200A58E40 /* LaunchScreen.storyboard */,
+				7E494332273D94D200A58E40 /* Info.plist */,
+			);
+			path = "Qardio-flickr";
+			sourceTree = "<group>";
+		};
+		7E49433A273D94D200A58E40 /* Qardio-flickrTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E49433B273D94D200A58E40 /* Qardio_flickrTests.swift */,
+			);
+			path = "Qardio-flickrTests";
+			sourceTree = "<group>";
+		};
+		7E494344273D94D200A58E40 /* Qardio-flickrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7E494345273D94D200A58E40 /* Qardio_flickrUITests.swift */,
+				7E494347273D94D200A58E40 /* Qardio_flickrUITestsLaunchTests.swift */,
+			);
+			path = "Qardio-flickrUITests";
+			sourceTree = "<group>";
+		};
+		7E494354273D9A8400A58E40 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7E494360273DE6F200A58E40 /* Objects */,
+				7E494358273DA82C00A58E40 /* Enum */,
+				7E494355273D9AAE00A58E40 /* Protocols */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		7E494355273D9AAE00A58E40 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E494356273D9AE500A58E40 /* Service.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E494358273DA82C00A58E40 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				7E494359273DA86E00A58E40 /* Result.swift */,
+				7E49435B273DADED00A58E40 /* APIError.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		7E494360273DE6F200A58E40 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7E494361273DE7B900A58E40 /* RequestBuilder.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E494320273D94D000A58E40 /* Qardio-flickr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E49434B273D94D200A58E40 /* Build configuration list for PBXNativeTarget "Qardio-flickr" */;
+			buildPhases = (
+				7E49431D273D94D000A58E40 /* Sources */,
+				7E49431E273D94D000A58E40 /* Frameworks */,
+				7E49431F273D94D000A58E40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Qardio-flickr";
+			productName = "Qardio-flickr";
+			productReference = 7E494321273D94D000A58E40 /* Qardio-flickr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7E494336273D94D200A58E40 /* Qardio-flickrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E49434E273D94D200A58E40 /* Build configuration list for PBXNativeTarget "Qardio-flickrTests" */;
+			buildPhases = (
+				7E494333273D94D200A58E40 /* Sources */,
+				7E494334273D94D200A58E40 /* Frameworks */,
+				7E494335273D94D200A58E40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E494339273D94D200A58E40 /* PBXTargetDependency */,
+			);
+			name = "Qardio-flickrTests";
+			productName = "Qardio-flickrTests";
+			productReference = 7E494337273D94D200A58E40 /* Qardio-flickrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7E494340273D94D200A58E40 /* Qardio-flickrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E494351273D94D200A58E40 /* Build configuration list for PBXNativeTarget "Qardio-flickrUITests" */;
+			buildPhases = (
+				7E49433D273D94D200A58E40 /* Sources */,
+				7E49433E273D94D200A58E40 /* Frameworks */,
+				7E49433F273D94D200A58E40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E494343273D94D200A58E40 /* PBXTargetDependency */,
+			);
+			name = "Qardio-flickrUITests";
+			productName = "Qardio-flickrUITests";
+			productReference = 7E494341273D94D200A58E40 /* Qardio-flickrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E494319273D94D000A58E40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					7E494320273D94D000A58E40 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					7E494336273D94D200A58E40 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7E494320273D94D000A58E40;
+					};
+					7E494340273D94D200A58E40 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7E494320273D94D000A58E40;
+					};
+				};
+			};
+			buildConfigurationList = 7E49431C273D94D000A58E40 /* Build configuration list for PBXProject "Qardio-flickr" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E494318273D94D000A58E40;
+			productRefGroup = 7E494322273D94D000A58E40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E494320273D94D000A58E40 /* Qardio-flickr */,
+				7E494336273D94D200A58E40 /* Qardio-flickrTests */,
+				7E494340273D94D200A58E40 /* Qardio-flickrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E49431F273D94D000A58E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E494331273D94D200A58E40 /* LaunchScreen.storyboard in Resources */,
+				7E49432E273D94D200A58E40 /* Assets.xcassets in Resources */,
+				7E49432C273D94D000A58E40 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E494335273D94D200A58E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E49433F273D94D200A58E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E49431D273D94D000A58E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E494325273D94D000A58E40 /* AppDelegate.swift in Sources */,
+				7E494327273D94D000A58E40 /* SceneDelegate.swift in Sources */,
+				7E49435A273DA86E00A58E40 /* Result.swift in Sources */,
+				7E494362273DE7B900A58E40 /* RequestBuilder.swift in Sources */,
+				7E49435C273DADED00A58E40 /* APIError.swift in Sources */,
+				7E494357273D9AE500A58E40 /* Service.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E494333273D94D200A58E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E49433C273D94D200A58E40 /* Qardio_flickrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E49433D273D94D200A58E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E494346273D94D200A58E40 /* Qardio_flickrUITests.swift in Sources */,
+				7E494348273D94D200A58E40 /* Qardio_flickrUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E494339273D94D200A58E40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E494320273D94D000A58E40 /* Qardio-flickr */;
+			targetProxy = 7E494338273D94D200A58E40 /* PBXContainerItemProxy */;
+		};
+		7E494343273D94D200A58E40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E494320273D94D000A58E40 /* Qardio-flickr */;
+			targetProxy = 7E494342273D94D200A58E40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7E49432A273D94D000A58E40 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E49432B273D94D000A58E40 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E49432F273D94D200A58E40 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E494330273D94D200A58E40 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E494349273D94D200A58E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7E49434A273D94D200A58E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E49434C273D94D200A58E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Qardio-flickr/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.assignment.Qardio-flickr";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E49434D273D94D200A58E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Qardio-flickr/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.assignment.Qardio-flickr";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7E49434F273D94D200A58E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.assignment.Qardio-flickrTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Qardio-flickr.app/Qardio-flickr";
+			};
+			name = Debug;
+		};
+		7E494350273D94D200A58E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.assignment.Qardio-flickrTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Qardio-flickr.app/Qardio-flickr";
+			};
+			name = Release;
+		};
+		7E494352273D94D200A58E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.assignment.Qardio-flickrUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Qardio-flickr";
+			};
+			name = Debug;
+		};
+		7E494353273D94D200A58E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.assignment.Qardio-flickrUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Qardio-flickr";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E49431C273D94D000A58E40 /* Build configuration list for PBXProject "Qardio-flickr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E494349273D94D200A58E40 /* Debug */,
+				7E49434A273D94D200A58E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E49434B273D94D200A58E40 /* Build configuration list for PBXNativeTarget "Qardio-flickr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E49434C273D94D200A58E40 /* Debug */,
+				7E49434D273D94D200A58E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E49434E273D94D200A58E40 /* Build configuration list for PBXNativeTarget "Qardio-flickrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E49434F273D94D200A58E40 /* Debug */,
+				7E494350273D94D200A58E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E494351273D94D200A58E40 /* Build configuration list for PBXNativeTarget "Qardio-flickrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E494352273D94D200A58E40 /* Debug */,
+				7E494353273D94D200A58E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E494319273D94D000A58E40 /* Project object */;
+}
