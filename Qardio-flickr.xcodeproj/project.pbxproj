@@ -19,6 +19,16 @@
 		7E49435A273DA86E00A58E40 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494359273DA86E00A58E40 /* Result.swift */; };
 		7E49435C273DADED00A58E40 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49435B273DADED00A58E40 /* APIError.swift */; };
 		7E494362273DE7B900A58E40 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494361273DE7B900A58E40 /* RequestBuilder.swift */; };
+		7E494365273E9AA200A58E40 /* FlickrItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494364273E9AA200A58E40 /* FlickrItem.swift */; };
+		7E494367273EB68700A58E40 /* ItemsRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494366273EB68700A58E40 /* ItemsRequestTest.swift */; };
+		7E49436A273EB6E800A58E40 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494369273EB6E800A58E40 /* MockSession.swift */; };
+		7E49436C273EB70C00A58E40 /* MockTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49436B273EB70C00A58E40 /* MockTask.swift */; };
+		7E49436E273ED9C100A58E40 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49436D273ED9C100A58E40 /* URLSessionProtocol.swift */; };
+		7E494370273ED9D300A58E40 /* URLDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E49436F273ED9D300A58E40 /* URLDataTaskProtocol.swift */; };
+		7E494372273EE98600A58E40 /* ItemsListMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494371273EE98600A58E40 /* ItemsListMockService.swift */; };
+		7E494374273F055100A58E40 /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494373273F055100A58E40 /* SearchItem.swift */; };
+		7E494378273F1DC200A58E40 /* Content.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E494377273F1DC200A58E40 /* Content.json */; };
+		7E49437A273F1F6500A58E40 /* PhotosData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E494379273F1F6500A58E40 /* PhotosData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +65,16 @@
 		7E494359273DA86E00A58E40 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		7E49435B273DADED00A58E40 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		7E494361273DE7B900A58E40 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		7E494364273E9AA200A58E40 /* FlickrItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrItem.swift; sourceTree = "<group>"; };
+		7E494366273EB68700A58E40 /* ItemsRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRequestTest.swift; sourceTree = "<group>"; };
+		7E494369273EB6E800A58E40 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		7E49436B273EB70C00A58E40 /* MockTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTask.swift; sourceTree = "<group>"; };
+		7E49436D273ED9C100A58E40 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		7E49436F273ED9D300A58E40 /* URLDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDataTaskProtocol.swift; sourceTree = "<group>"; };
+		7E494371273EE98600A58E40 /* ItemsListMockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListMockService.swift; sourceTree = "<group>"; };
+		7E494373273F055100A58E40 /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
+		7E494377273F1DC200A58E40 /* Content.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Content.json; sourceTree = "<group>"; };
+		7E494379273F1F6500A58E40 /* PhotosData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +139,9 @@
 		7E49433A273D94D200A58E40 /* Qardio-flickrTests */ = {
 			isa = PBXGroup;
 			children = (
+				7E494377273F1DC200A58E40 /* Content.json */,
 				7E49433B273D94D200A58E40 /* Qardio_flickrTests.swift */,
+				7E494366273EB68700A58E40 /* ItemsRequestTest.swift */,
 			);
 			path = "Qardio-flickrTests";
 			sourceTree = "<group>";
@@ -136,6 +158,8 @@
 		7E494354273D9A8400A58E40 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				7E494368273EB6CA00A58E40 /* Mocks */,
+				7E494363273E9A7800A58E40 /* Models */,
 				7E494360273DE6F200A58E40 /* Objects */,
 				7E494358273DA82C00A58E40 /* Enum */,
 				7E494355273D9AAE00A58E40 /* Protocols */,
@@ -147,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				7E494356273D9AE500A58E40 /* Service.swift */,
+				7E49436D273ED9C100A58E40 /* URLSessionProtocol.swift */,
+				7E49436F273ED9D300A58E40 /* URLDataTaskProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -166,6 +192,26 @@
 				7E494361273DE7B900A58E40 /* RequestBuilder.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		7E494363273E9A7800A58E40 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E494364273E9AA200A58E40 /* FlickrItem.swift */,
+				7E494373273F055100A58E40 /* SearchItem.swift */,
+				7E494379273F1F6500A58E40 /* PhotosData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E494368273EB6CA00A58E40 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7E494369273EB6E800A58E40 /* MockSession.swift */,
+				7E49436B273EB70C00A58E40 /* MockTask.swift */,
+				7E494371273EE98600A58E40 /* ItemsListMockService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E494378273F1DC200A58E40 /* Content.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,12 +346,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E49436E273ED9C100A58E40 /* URLSessionProtocol.swift in Sources */,
+				7E494365273E9AA200A58E40 /* FlickrItem.swift in Sources */,
+				7E49437A273F1F6500A58E40 /* PhotosData.swift in Sources */,
 				7E494325273D94D000A58E40 /* AppDelegate.swift in Sources */,
+				7E49436A273EB6E800A58E40 /* MockSession.swift in Sources */,
 				7E494327273D94D000A58E40 /* SceneDelegate.swift in Sources */,
+				7E494370273ED9D300A58E40 /* URLDataTaskProtocol.swift in Sources */,
+				7E494372273EE98600A58E40 /* ItemsListMockService.swift in Sources */,
+				7E49436C273EB70C00A58E40 /* MockTask.swift in Sources */,
 				7E49435A273DA86E00A58E40 /* Result.swift in Sources */,
 				7E494362273DE7B900A58E40 /* RequestBuilder.swift in Sources */,
 				7E49435C273DADED00A58E40 /* APIError.swift in Sources */,
 				7E494357273D9AE500A58E40 /* Service.swift in Sources */,
+				7E494374273F055100A58E40 /* SearchItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E49433C273D94D200A58E40 /* Qardio_flickrTests.swift in Sources */,
+				7E494367273EB68700A58E40 /* ItemsRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
