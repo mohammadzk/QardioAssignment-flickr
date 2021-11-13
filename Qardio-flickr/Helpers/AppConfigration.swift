@@ -7,9 +7,9 @@
 
 import Foundation
 struct Constant{
-    
     static let baseUrlString = "https://api.flickr.com/services/rest/"
     static let imagesBaseUrlString = "http://farm%@.static.flickr.com"
-    
-    
+}
+struct UserDefaultKeys{
+   static let kSearchHistory = "KSEARCHHISTORY"
 }

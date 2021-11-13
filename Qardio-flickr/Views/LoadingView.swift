@@ -17,16 +17,16 @@ class LoadingView:UIView{
    //public properties
     var image:UIImage? = UIImage(named: ""){
         didSet{
-            activityIndegator.isHidden = true
-            imageView.isHidden = false
+            activityIndegator.isHidden = image != nil
+            imageView.isHidden = image == nil
             imageView.image = image
             setNeedsDisplay()
         }
     }
     var loading:Bool = false {
         didSet{
-            activityIndegator.isHidden = false
-            imageView.isHidden = true
+            activityIndegator.isHidden = loading
+            imageView.isHidden = !loading
             activityIndegator.startAnimating()
             setNeedsDisplay()
         }
@@ -49,13 +49,14 @@ class LoadingView:UIView{
 // MARK: topView Constraints
         topView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         topView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        topView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         /// imageview and activityindigator are both subviews of topView to be presented in order when needed
         topView.addSubview(imageView)
         topView.insertSubview(activityIndegator, aboveSubview: imageView)
         imageView.topAnchor.constraint(equalTo: topView.topAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: topView.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: topView.trailingAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         activityIndegator.centerXAnchor.constraint(equalTo: topView.centerXAnchor).isActive = true
         activityIndegator.centerYAnchor.constraint(equalTo: topView.centerYAnchor).isActive = true
         activityIndegator.widthAnchor.constraint(equalToConstant: 30).isActive = true

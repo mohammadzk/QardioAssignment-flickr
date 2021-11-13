@@ -7,30 +7,46 @@
 
 import Foundation
 import Combine
+
 class SearchViewModel{
-    var cancleable:Set<AnyCancellable> = Set<AnyCancellable>()
-    @Published var list:[SearchResult] = []
-    @Published var searchText:String = ""
-    @Published var error:APIError?
-    var didResiveData:(()->())? = nil
+    var list:[SearchResult] = []
+    var searchText:String = ""
+    @Published var loadState:ContentloadState = .idle
+    var currentPage:Int = 1
+    var perpage:String = "10"
+    var didResiveData:(([SearchResult])->())? = nil
+    var searchHistory:[String] = []{
+        didSet{
+            UserDefaults.standard.set(searchHistory, forKey:UserDefaultKeys.kSearchHistory)
+            UserDefaults.standard.synchronize()
+        }
+    }
     init(){
-        $searchText
-            .dropFirst()
-            .eraseToAnyPublisher()
-            .receive(on: DispatchQueue.main)
-            .sink { text in
-                self.searchItem(txt: text, page: "1", perpage: "10")
-            }
-            .store(in: &cancleable)
+        if let history = UserDefaults.standard.value(forKey: UserDefaultKeys.kSearchHistory) as? [String] {
+            self.searchHistory = history
+        }
+       
+        
+    }
+    func resetvariables(){
+        self.loadState = .idle
+        self.searchText = ""
+        self.list = []
     }
     private func append(_ items:[SearchResult]){
         self.list += items
+        self.loadState = .moreBatchesLoaded
+        self.didResiveData?(self.list)
     }
     private func refresh(_ items:[SearchResult]){
         self.list = items
+        self.loadState = .oneBatchLoaded
+        self.didResiveData?(self.list)
     }
-    func searchItem(txt:String,page:String,perpage:String,refresh:Bool = false){
-        let service = SearchService(searchText:txt , page: page, perpage: perpage)
+    func searchItem(txt:String,page:Int ,perpage:String,refresh:Bool = false){
+        let service = SearchService(searchText:txt , page: "\(page)", perpage: perpage)
+        self.loadState = .loading
+        self.searchText = txt
         service.run { [weak self] searchResult in
             guard let strongSelf = self else {return}
             switch searchResult{
@@ -38,16 +54,22 @@ class SearchViewModel{
                 let items = photos.photos.listItems.compactMap{try? SearchResult(item: $0)}
                 if refresh{
                     strongSelf.refresh(items)
+                    
                 }
                 else {
                     strongSelf.append(items)
+                   
                 }
-                strongSelf.didResiveData?()
             case .failure(let error):
-                strongSelf.error = APIError(error: error)
+                strongSelf.loadState = .failed(APIError(error: error))
                 
             }
         }
+    }
+    func loadMoreItems(){
+        guard self.loadState != .loading ,self.loadState.nextLoadStatus == .moreBatchesLoaded else{return}
+        self.currentPage += 1
+        searchItem(txt: self.searchText, page: currentPage, perpage: self.perpage)
     }
 }
 struct SearchResult{

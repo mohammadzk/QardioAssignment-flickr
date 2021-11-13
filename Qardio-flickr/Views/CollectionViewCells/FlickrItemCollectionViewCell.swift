@@ -21,7 +21,7 @@ class FlickrItemCollectionViewCell: UICollectionViewCell {
     }
     var imageUrl:URL?{
         didSet{
-            itemImage.sd_setImage(with: imageUrl) 
+            itemImage.sd_setImage(with: imageUrl)
             setNeedsDisplay()
         }
     }
@@ -49,7 +49,7 @@ class FlickrItemCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         //set up title
-        itemTitle.numberOfLines = 0
+        itemTitle.numberOfLines = 4
         itemTitle.textAlignment = .left
         itemTitle.minimumScaleFactor = 0.7
         itemTitle.font = UIFont.systemFont(ofSize: 15)

@@ -6,19 +6,49 @@
 //
 
 import UIKit
+import Combine
 
-
-
+let simpleReuseIndentifier = "simpleCellReuseIdentifier"
 class SearchCollectionViewController: UICollectionViewController {
     var model :SearchViewModel = SearchViewModel()
+    var loading:LoadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+    var searchList:[SearchResult] = []
+    var searchHistory:[String] = []
+    var searchBar:UISearchBar!
+    var cancleAble:AnyCancellable?
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setting up views
         setupSearchBar()
         setUpCollectionView()
-        model.didResiveData = { [weak self] in
+        model.didResiveData = { [weak self] items in
+            self?.searchList = items
             self?.collectionView.reloadData()
         }
-       
+        self.searchHistory = model.searchHistory
+        cancleAble = model.$loadState
+            .eraseToAnyPublisher()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] modelstate in
+               guard let strongSelf = self else {return}
+                strongSelf.loading.removeFromSuperview()
+                switch modelstate{
+                case .loading:
+                    strongSelf.searchHistory = []
+                    strongSelf.collectionView.reloadData()
+                    strongSelf.loadingViewConfigration(isloading: true)
+                   
+                case .failed(let error):
+                    strongSelf.loadingViewConfigration(isloading: false, img: UIImage(systemName: "xmark.octagon.fill"), message: error.localizedDescription)
+                case .idle:
+                    if strongSelf.searchHistory.count <= 0 {
+                        strongSelf.loadingViewConfigration(isloading: false, img: UIImage(systemName: "magnifyingglass.circle.fill"), message: "No search data yet!")
+                  
+                    }
+                default:
+                    break
+                }
+            }
     }
     func setupSearchBar() {
         self.navigationItem.titleView = nil
@@ -32,15 +62,30 @@ class SearchCollectionViewController: UICollectionViewController {
         searchBar.delegate = self
         view.addSubview(searchBar)
         self.navigationItem.titleView = view
+        self.searchBar = searchBar
     }
     func setUpCollectionView(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-              layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+              layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
               layout.minimumInteritemSpacing = 0
-              layout.minimumLineSpacing = 0
+              layout.minimumLineSpacing = 5
               collectionView!.collectionViewLayout = layout
         collectionView.keyboardDismissMode = .onDrag
         collectionView.register(FlickrItemCollectionViewCell.self, forCellWithReuseIdentifier: FlickrItemCollectionViewCell.reuseIndetifier)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: simpleReuseIndentifier)
+        collectionView.register(HistoryCell.self, forCellWithReuseIdentifier: HistoryCell.reuseIndetifier)
+        
+    }
+    func loadingViewConfigration(isloading:Bool = false,img:UIImage? = nil ,message:String = ""){
+        loading.loading = isloading
+        loading.image = img
+        loading.textTitle = message
+        loading.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleWidth]
+        collectionView.contentInset.bottom += loading.frame.size.height
+        loading.frame.size.width =  collectionView.bounds.width
+        loading.frame.origin.y = collectionView.contentSize.height
+        loading.translatesAutoresizingMaskIntoConstraints = true
+        collectionView.addSubview(loading)
     }
     // MARK: UICollectionViewDataSource
 
@@ -51,47 +96,111 @@ class SearchCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.list.count
+        switch model.loadState{
+        case .idle:
+            return searchHistory.count
+        default:
+            return searchList.count
+        }
+       
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Configure the cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrItemCollectionViewCell.reuseIndetifier, for: indexPath)
-        guard let itemCell = cell as? FlickrItemCollectionViewCell else{return cell}
-        let item  = model.list[indexPath.row]
-        itemCell.title = item.title
-        itemCell.imageUrl = item.imageUrl
-    
-        return itemCell
+        switch model.loadState{
+        case .idle:
+        
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HistoryCell.reuseIndetifier, for: indexPath)
+                guard let historyCell = cell as? HistoryCell else {return cell}
+                historyCell.title = searchHistory[indexPath.row]
+                return historyCell
+//            }
+//            else {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: simpleReuseIndentifier, for: indexPath)
+//
+//            return messageCell(cell: cell, image: UIImage(systemName: "magnifyingglass.circle.fill"), title: "No search data yet!", isloading: false)
+//            }
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlickrItemCollectionViewCell.reuseIndetifier, for: indexPath)
+            guard let itemCell = cell as? FlickrItemCollectionViewCell else{return cell}
+            let item  = searchList[indexPath.row]
+            itemCell.title = item.title
+            itemCell.imageUrl = item.imageUrl
+            return itemCell
+        }
+      
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch model.loadState{
+        case .idle:
+            if model.searchHistory.count > 0 {
+                let text = searchHistory[indexPath.row]
+                searchBar.text = text
+                model.searchItem(txt: text, page:model.currentPage , perpage: model.perpage)
+                
+            }
+        default:
+            return
+        }
     }
 
     
 }
 extension SearchCollectionViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionCell = FlickrItemCollectionViewCell()
-        let item = model.list[indexPath.row]
-        collectionCell.title = item.title
-        return collectionCell.sizeThatFits(CGSize(width: UIScreen.main.bounds.width/2 - 10, height: (UIScreen.main.bounds.width/2 - 10) * 2))
+        switch model.loadState {
+        case .idle:
+            if model.searchHistory.count > 0 {
+                return CGSize(width: UIScreen.main.bounds.width, height: 64)
+            }
+            else {
+            return CGSize(width: UIScreen.main.bounds.width, height: 200)
+            }
+            
+        default:
+            let collectionCell = FlickrItemCollectionViewCell()
+            let item = model.list[indexPath.row]
+            collectionCell.title = item.title
+            return collectionCell.sizeThatFits(CGSize(width: UIScreen.main.bounds.width/2 - 10, height: (UIScreen.main.bounds.width/2 - 10) * 1.2))
+        }
+       
     }
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let bottomOffset = scrollView.contentOffset.y
+        
+        if bottomOffset > scrollView.contentSize.height - scrollView.bounds.height {
+            self.model.loadMoreItems()
+        }
+    }
+
     
 }
+
 extension SearchCollectionViewController:UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var text = searchText
-        if text == "" || text.count <= 1 {
-            text = ""
+        let text = searchText
+        if text == "" {
+            model.resetvariables()
+            
         }
-      //make search request
-        model.searchText = text
+        else if text.count > 2 {
+            //make search request
+            model.searchItem(txt: text, page:model.currentPage , perpage: model.perpage)
+            
+        }
+     
         
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, text != "" , searchBar.text?.count ?? 0 > 1 else { return }
+        guard let text = searchBar.text, text != "" , searchBar.text?.count ?? 0 > 2 else { return }
         
        //make search request
-        model.searchText = text
+        model.searchItem(txt: text, page:model.currentPage , perpage: model.perpage)
         searchBar.resignFirstResponder()
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text != "" , searchBar.text?.count ?? 0 > 2 else { return }
+        model.searchHistory.append(text)
     }
 }

@@ -20,6 +20,8 @@ struct SearchService:Service{
     var page:String
     var perpage:String
     var urlRequest: RequestBuilder{
-        RequestBuilder(baseUrl:Constant.baseUrlString,path: self.path).add(parameters: defaultParameters + ["text":searchText,"page":page,"per_page":perpage])
+      let rq = RequestBuilder(baseUrl:Constant.baseUrlString,path: self.path).add(parameters: defaultParameters + ["text":searchText,"page":page,"per_page":perpage])
+        print(rq.request.url)
+        return rq
     }
 }
