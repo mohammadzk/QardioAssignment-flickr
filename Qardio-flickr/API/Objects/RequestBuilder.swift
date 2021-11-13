@@ -14,12 +14,16 @@ import Foundation
 class RequestBuilder{
     var request:URLRequest
     
-    init(baseUrl:URL){
+    init(baseUrl:String,path:String = ""){
         //initializing Requestbuilder
-        var rq = URLRequest(url: baseUrl)
+        guard let url = URL(string: baseUrl  + "\(path)") else {
+            fatalError("Wrong baseUrl.")
+        }
+        var rq = URLRequest(url: url)
         rq.httpMethod = RequestMethod.get.rawValue
         self.request = rq
     }
+    
     func add(headers:[String:String])->RequestBuilder{
         //add headers to request
         var rq = self.request
@@ -41,8 +45,11 @@ class RequestBuilder{
         guard var urlComponents = URLComponents(url: rq.url!,resolvingAgainstBaseURL: false) else {
             return nil
         }
-        
-        urlComponents.queryItems = quaryParameters.compactMap({URLQueryItem(name: $0.key, value: $0.value)})
+        let sortedQuary = quaryParameters.sorted(by: {$0.key<$1.key})
+        urlComponents.queryItems = sortedQuary.map({
+            URLQueryItem(name: $0.key, value: $0.value)
+        })
+//        urlComponents.queryItems = quaryParameters.compactMap({URLQueryItem(name: $0.key, value: $0.value)})
         let quaryitems = urlComponents.query
         urlComponents.query = quaryitems?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let componentUrl = urlComponents.url else {

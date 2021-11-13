@@ -14,7 +14,7 @@ protocol Service{
     //url request build with request builder object
     var urlRequest:RequestBuilder{get}
     //additional path that appends at the end of url Request
-    var path:String{get}
+    var path:String{get set}
     //urlSession to set requests
     var session:URLSessionProtocol{set get}
     func run(_ completionHandler:@escaping (Result<ResultType>)->Void)

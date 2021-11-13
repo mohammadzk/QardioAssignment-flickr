@@ -14,7 +14,8 @@ class ItemsRequestTest: XCTestCase {
         urlsession.data = nil
         urlsession.error = nil
         urlsession.urlResponse = nil
-        sut = ItemlistMockService.init(parameters: ["method":"flickr.photos.search","api_key":"9480a18b30ba78893ebd8f25feaabf17","format":"json","nojsoncallback":"1","text":"kittens"], baseurl: URL(string: "https://api.flickr.com/services/rest/")!, session: urlsession)
+        
+        sut = ItemlistMockService(path:"",parameters: ["method":"flickr.photos.search","api_key":"9480a18b30ba78893ebd8f25feaabf17","format":"json","nojsoncallback":"1","text":"kittens"], baseurl:  "https://api.flickr.com/services/rest/", session: urlsession)
        
     }
 
@@ -24,7 +25,20 @@ class ItemsRequestTest: XCTestCase {
 
     func testRequest(){
         let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=9480a18b30ba78893ebd8f25feaabf17&format=json&nojsoncallback=1&text=kittens"
-        XCTAssertEqual(sut.urlRequest.request.url, URL(string: urlString)!)
+        let testStringQuaryComponents = URLComponents(url: URL(string: urlString)!, resolvingAgainstBaseURL: false)
+        let sutUrlComponents = URLComponents(url: sut.urlRequest.request.url!, resolvingAgainstBaseURL: false)
+        let testitems = testStringQuaryComponents?.queryItems?.reduce([String:String](), { dict, Qitem in
+            var finaldict = dict
+            finaldict[Qitem.name] = Qitem.value
+            return finaldict
+        })
+        let sutItems = sutUrlComponents?.queryItems?.reduce([String:String](), { dict, Qitem in
+            var finaldict = dict
+            finaldict[Qitem.name] = Qitem.value
+            return finaldict
+        })
+        XCTAssertEqual(sutItems,testitems)
+        XCTAssertEqual(sutUrlComponents?.host, testStringQuaryComponents?.host)
     }
     func testresultofRequest(){
         let testBundle = Bundle(for: type(of: self))
