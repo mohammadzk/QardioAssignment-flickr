@@ -6,7 +6,8 @@
 //
 
 import Foundation
-enum Result<T> where T:Encodable{
+/// customize result to get exact codable data
+enum Result<T> where T:Codable{
     case success(T)
     case failure(Error)
 }

@@ -29,17 +29,21 @@ extension Service {
               do{
                   let finalResult =  try JSONDecoder().decode(ResultType.self, from: _result)
                   DispatchQueue.main.async {
+                      //data passed succesfully and gets pass in main queue
                       completionHandler(.success(finalResult))
                   }
               }
               catch (let er){
                   DispatchQueue.main.async {
+                      //passing model parse error
                       completionHandler(.failure(APIError(error: er)))
                   }
               }
           }
           else if let er = error {
               DispatchQueue.main.async {
+                  //passing error
+                  //return in main queue
                   completionHandler(.failure(APIError(error: er)))
               }
           }

@@ -49,7 +49,6 @@ class RequestBuilder{
         urlComponents.queryItems = sortedQuary.map({
             URLQueryItem(name: $0.key, value: $0.value)
         })
-//        urlComponents.queryItems = quaryParameters.compactMap({URLQueryItem(name: $0.key, value: $0.value)})
         let quaryitems = urlComponents.query
         urlComponents.query = quaryitems?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let componentUrl = urlComponents.url else {

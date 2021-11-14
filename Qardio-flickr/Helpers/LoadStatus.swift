@@ -6,6 +6,7 @@
 //
 
 import Foundation
+/// content loadstatus enum
 enum ContentloadState:Equatable{
     case idle
     case loading

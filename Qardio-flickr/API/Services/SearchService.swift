@@ -13,15 +13,19 @@ struct SearchService:Service{
     var path: String = ""
     
     var session: URLSessionProtocol = URLSession.shared
-    var defaultParameters:[String:String] {
+    //default query parameters
+    private var defaultParameters:[String:String] {
       return  ["method":"flickr.photos.search","api_key":"9480a18b30ba78893ebd8f25feaabf17","format":"json","nojsoncallback":"1"]
     }
-    var searchText:String
-    var page:String
-    var perpage:String
+    /// these properties will be added to querystring
+    var searchText:String // searchQuery
+    var page:String //page number
+    var perpage:String // items perpage
+    
     var urlRequest: RequestBuilder{
-      let rq = RequestBuilder(baseUrl:Constant.baseUrlString,path: self.path).add(parameters: defaultParameters + ["text":searchText,"page":page,"per_page":perpage])
-        print(rq.request.url)
-        return rq
+    //building request url for search
+      RequestBuilder(baseUrl:Constant.baseUrlString,path: self.path).add(parameters: defaultParameters + ["text":searchText,"page":page,"per_page":perpage])
+       
+       
     }
 }

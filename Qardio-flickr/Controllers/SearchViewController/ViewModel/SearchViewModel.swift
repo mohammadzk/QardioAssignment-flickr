@@ -7,14 +7,16 @@
 
 import Foundation
 import Combine
-
+///view model for handling the data for searchView Controller
 class SearchViewModel{
-    var list:[SearchResult] = []
-    var searchText:String = ""
-    @Published var loadState:ContentloadState = .idle
-    var currentPage:Int = 1
-    var perpage:String = "10"
+    var list:[SearchResult] = [] // main photos
+    var searchText:String = "" // search text
+    @Published var loadState:ContentloadState = .idle // keeps the state of data request
+    var currentPage:Int = 1 // keeping track of current list page number
+    var perpage:String = "10" // items perpage default value is 10
+    //Closure to retrive data
     var didResiveData:(([SearchResult])->())? = nil
+    // user search history array stored in  userDefaults
     var searchHistory:[String] = []{
         didSet{
             UserDefaults.standard.set(searchHistory, forKey:UserDefaultKeys.kSearchHistory)
@@ -22,28 +24,31 @@ class SearchViewModel{
         }
     }
     init(){
+        //retriving stored search history
         if let history = UserDefaults.standard.value(forKey: UserDefaultKeys.kSearchHistory) as? [String] {
             self.searchHistory = history
         }
-       
-        
     }
     func resetvariables(){
+        ///clearing data for next request
         self.loadState = .idle
         self.searchText = ""
         self.list = []
     }
     private func append(_ items:[SearchResult]){
+        /// append new page data to current search result
         self.list += items
         self.loadState = .moreBatchesLoaded
         self.didResiveData?(self.list)
     }
     private func refresh(_ items:[SearchResult]){
+        /// refresh search result
         self.list = items
         self.loadState = .oneBatchLoaded
         self.didResiveData?(self.list)
     }
     func searchItem(txt:String,page:Int ,perpage:String,refresh:Bool = false){
+        // search service
         let service = SearchService(searchText:txt , page: "\(page)", perpage: perpage)
         self.loadState = .loading
         self.searchText = txt
@@ -67,11 +72,14 @@ class SearchViewModel{
         }
     }
     func loadMoreItems(){
+        //load more action
         guard self.loadState != .loading ,self.loadState.nextLoadStatus == .moreBatchesLoaded else{return}
+        //changing page to next
         self.currentPage += 1
         searchItem(txt: self.searchText, page: currentPage, perpage: self.perpage)
     }
 }
+///model specific searchView model to creat search item and make image url for it
 struct SearchResult{
     let title:String
     let imageUrl:URL?

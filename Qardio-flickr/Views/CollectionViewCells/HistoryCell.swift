@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 class HistoryCell:UICollectionViewCell{
    private var titleLabel:UILabel = UILabel()
+    //reuse identifier
     static var reuseIndetifier:String{
         return "\(HistoryCell.self)"
     }
     private func commonInit() {
+        //initilize view
         contentView.addSubview(self.titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
